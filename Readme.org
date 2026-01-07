@@ -1434,7 +1434,7 @@ Use =H-== to format the entire buffer
 Use =H-+= to reindent buffers
 
 #+begin_src emacs-lisp
-  (global-set-key (kbd "H-=") #'fiachetti/reindent-buffer)
+  (global-set-key (kbd "H-+") #'fiachetti/reindent-buffer)
 #+end_src
 
 ** Reindent buffer
