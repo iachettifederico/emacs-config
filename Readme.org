@@ -683,9 +683,13 @@ Orderless improves the way Emacs matches completion candidates. Instead of match
 
 #+begin_src emacs-lisp
   (use-package orderless
+    :ensure t
     :init
-    (setq completion-styles '(orderless)
-          completion-category-defaults nil))
+    (setq completion-styles '(orderless basic)
+          completion-category-defaults nil
+          completion-category-overrides '((file (styles partial-completion))))
+    :custom
+    (orderless-matching-styles '(orderless-flex orderless-initialism orderless-literal)))
 #+end_src
 
 ** Consult
