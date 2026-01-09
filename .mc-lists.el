@@ -5,8 +5,10 @@
       '(
         org-beginning-of-line
         org-self-insert-command
+        org-shiftright
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        mouse-set-region
         ))
