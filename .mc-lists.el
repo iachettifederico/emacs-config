@@ -3,9 +3,12 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        cycle-spacing
+        kill-region
         org-beginning-of-line
         org-self-insert-command
         org-shiftright
+        string-inflection-underscore
         ))
 
 (setq mc/cmds-to-run-once
