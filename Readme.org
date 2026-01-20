@@ -60,6 +60,8 @@ Small interface tweaks to simplify the look and feel
   (blink-cursor-mode 0)
   (show-paren-mode)
   (setq ring-bell-function 'ignore)
+  (global-display-line-numbers-mode 1)
+  (global-hl-line-mode 1)
 #+end_src
 
 * Appearance
