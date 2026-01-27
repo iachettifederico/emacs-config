@@ -691,7 +691,34 @@ Orderless improves the way Emacs matches completion candidates. Instead of match
           completion-category-defaults nil
           completion-category-overrides '((file (styles partial-completion))))
     :custom
-    (orderless-matching-styles '(orderless-flex orderless-initialism orderless-literal)))
+    (orderless-matching-styles '(orderless-literal orderless-initialism)))
+#+end_src
+
+*** Style dispatchers
+
+Use special prefix characters to force a specific matching style:
+
+- =~foo= — flex match (scattered characters)
+- ==foo= — literal match (exact substring)
+- =!foo= — exclude candidates containing "foo"
+
+Without a prefix, the default styles (literal + initialism) are used.
+
+#+begin_src emacs-lisp
+  (defun fiachetti/orderless-dispatch (word _index _total)
+    "Dispatch orderless style based on prefix character."
+    (cond
+     ;; ~foo → flex match
+     ((string-prefix-p "~" word)
+      `(orderless-flex . ,(substring word 1)))
+     ;; =foo → literal match
+     ((string-prefix-p "=" word)
+      `(orderless-literal . ,(substring word 1)))
+     ;; !foo → exclude matches
+     ((string-prefix-p "!" word)
+      `(orderless-without-literal . ,(substring word 1)))))
+
+  (setq orderless-style-dispatchers '(fiachetti/orderless-dispatch))
 #+end_src
 
 ** Consult
