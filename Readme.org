@@ -1344,6 +1344,10 @@ We load the current Ruby environment from `.envrc` files using `envrc-mode`, whi
     (envrc-global-mode))
 #+end_src
 
+#+begin_src emacs-lisp
+  (use-package direnv)
+#+end_src
+
 * LSP Support
 
 Use `lsp-mode` for Language Server Protocol support. This package is responsible
