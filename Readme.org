@@ -1515,6 +1515,18 @@ Use =H-+= to reindent buffers
   (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 #+end_src
 
+* Ledger mode
+
+#+begin_src emacs-lisp
+  (use-package ledger-mode :ensure t)
+#+end_src
+
+Expanded account balances in the overall monthly report are mostly noise for me and do not convey any meaningful information.
+
+#+begin_src emacs-lisp
+  (setq hledger-show-expanded-report nil)
+#+end_src
+
 * Extra file extensions
 
 Add modes for some other file types
@@ -1537,4 +1549,10 @@ Add modes for some other file types
 #+begin_src emacs-lisp
   (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . web-mode))
+#+end_src
+
+** Ledger mode
+
+#+begin_src emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.journal\\'" . ledger-mode))
 #+end_src
