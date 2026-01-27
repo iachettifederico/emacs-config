@@ -1255,18 +1255,14 @@ The idea is:
 
 #+begin_src emacs-lisp
   (defun fiachetti/consult-ripgrep-project ()
-    "Search the current project with ripgrep, seeded with symbol at point."
+    "Search the current project with ripgrep."
     (interactive)
-    (consult-ripgrep
-     (consult--project-root)
-     (thing-at-point 'symbol t)))
+    (consult-ripgrep (consult--project-root)))
 
   (defun fiachetti/consult-ripgrep-dir ()
-    "Search the current directory with ripgrep, seeded with symbol at point."
+    "Search the current directory with ripgrep."
     (interactive)
-    (consult-ripgrep
-     default-directory
-     (thing-at-point 'symbol t)))
+    (consult-ripgrep default-directory))
 
 #+end_src
 
