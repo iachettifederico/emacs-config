@@ -1381,6 +1381,12 @@ This gives us diagnostics (including RuboCop), formatting, hover docs, jump-to-d
     :ensure t)
 #+end_src
 
+* Web mode
+
+#+begin_src emacs-lisp
+  (use-package web-mode :ensure t)
+#+end_src
+
 * Auto close parenthesis
 
 #+begin_src emacs-lisp
