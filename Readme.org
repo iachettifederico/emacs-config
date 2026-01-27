@@ -797,6 +797,7 @@ Corfu adds a clean popup completion UI for Emacs' built-in `completion-at-point`
 #+begin_src emacs-lisp
   (setq tab-always-indent t)
 #+end_src
+
 * Dired
 
 ** Open with "a"
@@ -1440,11 +1441,14 @@ Add snippets
 #+begin_src emacs-lisp
   (use-package yasnippet
     :hook ((prog-mode text-mode conf-mode) . yas-minor-mode)
-    :bind (:map yas-minor-mode-map
-                ("TAB" . yas-expand)
-                ("<tab>" . yas-expand))
     :config
-    (yas-reload-all))
+    (yas-reload-all)
+    ;; Don't bind TAB directly to yas-expand; instead use the fallback mechanism
+    ;; so that TAB indents when no snippet is available.
+    (define-key yas-minor-mode-map (kbd "TAB") nil)
+    (define-key yas-minor-mode-map (kbd "<tab>") nil)
+    ;; Use backtab or C-tab to expand snippets explicitly (already configured below)
+    )
 #+end_src
 
 #+begin_src emacs-lisp
