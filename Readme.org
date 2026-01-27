@@ -784,6 +784,10 @@ Corfu adds a clean popup completion UI for Emacs' built-in `completion-at-point`
     (corfu-auto-prefix 1)
     (corfu-cycle t)
     (corfu-quit-no-match 'separator)
+    :bind (:map corfu-map
+                ("RET" . corfu-insert)
+                ("TAB" . nil)
+                ("<tab>" . nil))
     :init
     (global-corfu-mode))
 #+end_src
@@ -791,7 +795,7 @@ Corfu adds a clean popup completion UI for Emacs' built-in `completion-at-point`
 *** Tab behaviour
 
 #+begin_src emacs-lisp
-  (setq tab-always-indent 'complete)
+  (setq tab-always-indent t)
 #+end_src
 * Dired
 
@@ -1436,6 +1440,9 @@ Add snippets
 #+begin_src emacs-lisp
   (use-package yasnippet
     :hook ((prog-mode text-mode conf-mode) . yas-minor-mode)
+    :bind (:map yas-minor-mode-map
+                ("TAB" . yas-expand)
+                ("<tab>" . yas-expand))
     :config
     (yas-reload-all))
 #+end_src
