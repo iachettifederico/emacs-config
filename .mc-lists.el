@@ -4,6 +4,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         cycle-spacing
+        electric-pair-delete-pair
         kill-region
         org-beginning-of-line
         org-self-insert-command
