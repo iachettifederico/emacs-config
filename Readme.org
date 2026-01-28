@@ -190,6 +190,12 @@ Don't allow lines to overflow the screen
   (setq-default word-wrap t)
 #+end_src
 
+** Files
+
+#+begin_src emacs-lisp
+  (save-place-mode 1)
+#+end_src
+
 * Editing
 
 ** Delete selection
