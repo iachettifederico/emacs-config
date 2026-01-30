@@ -14,6 +14,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+        fiachetti/format-buffer
         mouse-set-region
         rspec-rerun
         ))
